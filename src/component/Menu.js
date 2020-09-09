@@ -1,35 +1,47 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Media } from "react-bootstrap";
+import { Container, Row, Card, Col, Button, CardGroup } from "react-bootstrap";
 class Menu extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      selectedDish: null,
+    };
+  }
+  onDishSelected(dish) {
+    this.setState({ selectedDish: dish });
+  }
+  renderDish(dish) {
+    if (dish !== null) {
+      return (
+        <Card>
+          <Card.Img src={dish.image} alt={dish.name} />
+          <Card.Body>
+            <Card.Title>{dish.name}</Card.Title>
+            <Card.Text>{dish.description}</Card.Text>
+          </Card.Body>
+        </Card>
+      );
+    } else {
+      return <div></div>;
+    }
   }
   render() {
     const menu = this.props.dishes.map((dish) => {
       return (
-        <div key={dish.id}>
-          <Media as="li">
-            <img
-              width={64}
-              height={64}
-              className="ml-3 mr-3 mt-5 border"
-              src={dish.image}
-              alt="Generic placeholder"
-            ></img>
-            <Media.Body>
-              <h5 className="mt-5">{dish.name}</h5>
-              <p>{dish.description}</p>
-            </Media.Body>
-          </Media>
-        </div>
+        <Col key={dish.id} md={5}>
+          <Card onClick={() => this.onDishSelected(dish)}>
+            <Card.Img src={dish.image} />
+            <Card.ImgOverlay>{dish.name}</Card.ImgOverlay>
+          </Card>
+        </Col>
       );
     });
     return (
       <Container>
+        <Row>{menu}</Row>
         <Row>
-          <ol className="list-unstyled">{menu}</ol>
+          <Col>{this.renderDish(this.state.selectedDish)}</Col>
         </Row>
       </Container>
     );
