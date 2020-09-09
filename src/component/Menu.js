@@ -57,12 +57,12 @@ class Menu extends Component {
             <img
               width={64}
               height={64}
-              className="mr-3"
+              className="ml-3 mr-3 mt-5"
               src={dish.image}
               alt="Generic placeholder"
             ></img>
             <Media.Body>
-              <h5>{dish.name}</h5>
+              <h5 className="mt-5">{dish.name}</h5>
               <p>{dish.description}</p>
             </Media.Body>
           </Media>
