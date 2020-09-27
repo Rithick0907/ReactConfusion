@@ -25,7 +25,7 @@ const RenderComments=({dish})=>{
           return (
             <div>
               <li className="list-unstyled m-1">{com.comment}</li>
-              <li className="list-unstyled">--{com.author}{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(com.date)))}</li>
+              <li className="list-unstyled">--{com.author} {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(com.date)))}</li>
           </div>
       
         );
