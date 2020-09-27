@@ -1,17 +1,16 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import Navi from "./component/NavigationBar";
-import Menu from "./component/Menu";
-import DISHES from "./shared/dishes";
+import React,{Component} from "react";
+import Main from "./component/MainComponent";
 
-function App() {
-  return (
-    <div>
-    <Navi />
-    <Menu dishes={DISHES} />
-    </div>
-  );
+class App extends Component {
+
+  render() {
+    return (
+      <div className="App">
+        <Main />
+      </div>
+    );
+  }
 }
+
 
 export default App;

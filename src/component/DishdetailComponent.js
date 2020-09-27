@@ -1,6 +1,7 @@
 import React,{Component} from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, CardBody,CardTitle,CardImg,CardText } from 'reactstrap';
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 class DishDetail extends Component{
     constructor(props){
@@ -61,8 +62,8 @@ class DishDetail extends Component{
             <div  className="col-12 col-md-5 m-1">
                 {this.renderComments(this.props.dish)}
             </div>
-        </div>)
-    
+        </div>
+        )
     }
 }
 
