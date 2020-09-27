@@ -1,7 +1,6 @@
 import { getDefaultNormalizer } from "@testing-library/react";
 import React, { Component } from "react";
 import { Card, CardImg, CardImgOverlay, CardText, CardBody,CardTitle, CardHeader } from 'reactstrap';
-import DishdetailComponent from "./DishdetailComponent";
 import DishDetail from "./DishdetailComponent";
 class Menu extends Component {
   constructor(props) {
@@ -16,22 +15,22 @@ onDishSelect(dish) {
     this.setState({ selectedDish: dish});
 }
 
-renderDish(dish) {
-    if (dish != null)
-        return(
-            <Card>
-                <CardImg top src={dish.image} alt={dish.name} />
-                <CardBody>
-                  <CardTitle>{dish.name}</CardTitle>
-                  <CardText>{dish.description}</CardText>
-                </CardBody>
-            </Card>
-        );
-    else
-        return(
-            <div></div>
-        );
-}
+// renderDish(dish) {
+//     if (dish != null)
+//         return(
+//             <Card>
+//                 <CardImg top src={dish.image} alt={dish.name} />
+//                 <CardBody>
+//                   <CardTitle>{dish.name}</CardTitle>
+//                   <CardText>{dish.description}</CardText>
+//                 </CardBody>
+//             </Card>
+//         );
+//     else
+//         return(
+//             <div></div>
+//         );
+// }
 
 
 render() {
@@ -54,14 +53,7 @@ render() {
             <div className="row">
                 {menu}
             </div>
-            <div className="row">
-              <div  className="col-12 col-md-5 m-1">
-                {this.renderDish(this.state.selectedDish)}
-              </div>
-              <div  className="col-12 col-md-5 m-1">
-                <DishdetailComponent dish={this.state.selectedDish}/>
-              </div>
-            </div>
+            <DishDetail dish={this.state.selectedDish}/>
         </div>
     );
 }
