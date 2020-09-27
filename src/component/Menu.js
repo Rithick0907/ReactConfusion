@@ -1,5 +1,8 @@
+import { getDefaultNormalizer } from "@testing-library/react";
 import React, { Component } from "react";
-import { Card, CardImg, CardImgOverlay, CardText, CardBody,CardTitle } from 'reactstrap';
+import { Card, CardImg, CardImgOverlay, CardText, CardBody,CardTitle, CardHeader } from 'reactstrap';
+import DishdetailComponent from "./DishdetailComponent";
+import DishDetail from "./DishdetailComponent";
 class Menu extends Component {
   constructor(props) {
     super(props);
@@ -30,6 +33,7 @@ renderDish(dish) {
         );
 }
 
+
 render() {
     const menu = this.props.dishes.map((dish) => {
         return (
@@ -53,6 +57,9 @@ render() {
             <div className="row">
               <div  className="col-12 col-md-5 m-1">
                 {this.renderDish(this.state.selectedDish)}
+              </div>
+              <div  className="col-12 col-md-5 m-1">
+                <DishdetailComponent dish={this.state.selectedDish}/>
               </div>
             </div>
         </div>
