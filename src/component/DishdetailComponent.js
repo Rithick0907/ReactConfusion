@@ -17,6 +17,7 @@ import {
 } from "reactstrap";
 import { baseUrl } from "../shared/baseUrl";
 import { Control, LocalForm, Errors } from "react-redux-form";
+import { FadeTransform, Fade, Stagger } from "react-animation-components";
 import { Link } from "react-router-dom";
 import { Loading } from "./LoadingComponent";
 
@@ -143,35 +144,53 @@ class CommentForm extends Component {
 const RenderDish = ({ dish }) => {
   if (dish != null)
     return (
-      <Card>
-        <CardImg top src={baseUrl + dish.image} alt={dish.name} />
-        <CardBody>
-          <CardTitle>{dish.name}</CardTitle>
-          <CardText>{dish.description}</CardText>
-        </CardBody>
-      </Card>
+      <FadeTransform
+        in
+        transformProps={{
+          exitTransform: "scale(0.5) translateY(-50%)",
+        }}
+      >
+        <Card>
+          <CardImg top src={baseUrl + dish.image} alt={dish.name} />
+          <CardBody>
+            <CardTitle>{dish.name}</CardTitle>
+            <CardText>{dish.description}</CardText>
+          </CardBody>
+        </Card>
+      </FadeTransform>
     );
   else return <div></div>;
 };
 
 function RenderComments({ comments, postComment, dishId }) {
   let result = null;
+  let allCommment = null;
   if (comments != null) {
-    let allCommment = comments.map((com) => {
-      return (
-        <div>
-          <li className="list-unstyled m-1">{com.comment}</li>
-          <li className="list-unstyled">
-            --{com.author}{" "}
-            {new Intl.DateTimeFormat("en-US", {
-              year: "numeric",
-              month: "short",
-              day: "2-digit",
-            }).format(new Date(Date.parse(com.date)))}
-          </li>
-        </div>
-      );
-    });
+    allCommment = (
+      <div className="col-12 col-md-5">
+        <ul className="list-unstyled">
+          <Stagger in>
+            {comments.map((comment) => {
+              return (
+                <Fade in>
+                  <li key={comment.id}>
+                    <p>{comment.comment}</p>
+                    <p>
+                      -- {comment.author} ,{" "}
+                      {new Intl.DateTimeFormat("en-US", {
+                        year: "numeric",
+                        month: "short",
+                        day: "2-digit",
+                      }).format(new Date(Date.parse(comment.date)))}
+                    </p>
+                  </li>
+                </Fade>
+              );
+            })}
+          </Stagger>
+        </ul>
+      </div>
+    );
     result = (
       <Card className="border-0">
         <CardBody>
