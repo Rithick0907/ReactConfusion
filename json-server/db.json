@@ -260,6 +260,58 @@
       "abbr": "EC",
       "featured": true,
       "description": "Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. He says, Put together the cuisines from the two craziest cultures, and you get a winning hit! Amma Mia!"
+    },
+    {
+      "feedback": {
+        "firstname": "Rithick",
+        "lastname": "Babu",
+        "telnum": "1234567890",
+        "email": "rtyuio@ghm.com",
+        "agree": true,
+        "contactType": "Email",
+        "message": "this is to check"
+      },
+      "date": "2020-11-02T11:07:05.123Z",
+      "id": 4
+    },
+    {
+      "feedback": {
+        "firstname": "Rithick",
+        "lastname": "Babu",
+        "telnum": "097889",
+        "email": "rtyuio@ghm.com",
+        "agree": true,
+        "contactType": "Email",
+        "message": "owql3r"
+      },
+      "date": "2020-11-02T11:08:48.670Z",
+      "id": 5
+    },
+    {
+      "feedback": {
+        "firstname": "Rithick",
+        "lastname": "Babu",
+        "telnum": "1234567890",
+        "email": "rtyuio@ghm.com",
+        "agree": true,
+        "contactType": "Tel.",
+        "message": "woefinwefni"
+      },
+      "date": "2020-11-02T11:09:55.302Z",
+      "id": 6
+    },
+    {
+      "feedback": {
+        "firstname": "Rithick",
+        "lastname": "Babu",
+        "telnum": "1234567890",
+        "email": "rtyuio@ghm.com",
+        "agree": true,
+        "contactType": "Tel.",
+        "message": "weonfd"
+      },
+      "date": "2020-11-02T11:10:12.506Z",
+      "id": 7
     }
   ],
   "feedback": [
